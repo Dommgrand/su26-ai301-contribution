@@ -1,15 +1,17 @@
-# Contribution [#]: [Issue Title]
+# Contribution [#]: DrumBeatRepo
 
-**Contribution Number:** [1 / 2 / 3]  
-**Student:** [Your Name]  
-**Issue:** [GitHub issue link]  
-**Status:** [Phase I / Phase II / Phase III / Phase IV] [In Progress / Complete]
+**Contribution Number:** 1 
+**Student:** Dominique Fraser 
+**Issue:** https://github.com/Babali42/DrumBeatRepo/issues/511  
+**Status:** Phase 1 -- Complete
 
 ---
 
 ## Why I Chose This Issue
 
-[1-2 paragraphs explaining why this issue interests you, how it matches your skills/learning goals, what you hope to learn]
+I chose Issue #511 because it was the open-source project and issue that interested me the most out of the three options we reviewed. I was drawn to DrumBeatRepo because it combines software development with music, which makes the project more engaging to me than working on a completely unfamiliar type of application. The issue itself is also approachable because it involves adding a missing SVG icon for the crash cymbal in the Rock Variation Pattern rather than making a large or complicated change to the application. I liked that I could understand the goal of the issue while still being introduced to how a real open-source project organizes its UI assets, code, and tests.
+
+This issue also matches my background in computer science and my interest in gaining more practical software development experience. While I have experience with programming and different areas of technology, I want to become more comfortable understanding an existing codebase and contributing to a project that I did not create myself. Through this issue, I hope to learn more about how developers investigate bugs, identify the files that need to be changed, use GitHub and Git for collaboration, test their changes, and ultimately contribute to an open-source project. I also think starting with a smaller UI-focused issue will give me a good foundation for tackling more complex open-source contributions in the future.
 
 ---
 
