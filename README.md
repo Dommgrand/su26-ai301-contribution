@@ -22,19 +22,19 @@ This issue also matches my background in computer science and my interest in gai
 
 ### Problem Description
 
-[In your own words, what's broken or missing?]
+The Rock Variation Pattern in DrumBeatRepo is missing a visual icon for the crash cymbal. The crash cymbal is already configured to use MIDI note 49, so the functionality is recognized by the application, but there is no corresponding SVG drum icon being displayed for it. The issue is therefore primarily a UI/visual asset problem rather than a problem with the drum pattern or MIDI configuration.
 
 ### Expected Behavior
 
-[What should happen?]
+When the Rock Variation Pattern includes a crash cymbal, the application should display a crash cymbal icon along with the other drum instrument icons. The crash cymbal should have its own SVG image that is correctly mapped to the instrument so that users can visually identify it in the interface.
 
 ### Current Behavior
 
-[What actually happens?]
+The application recognizes the crash cymbal through MIDI note 49, but there is no crash cymbal SVG icon available for the UI to display. As a result, the crash cymbal does not have the appropriate visual representation when viewing the Rock Variation Pattern.
 
 ### Affected Components
 
-[Which parts of the codebase are involved?]
+The main components involved are the Rock Variation Pattern data in src/assets/beats/rock/variation.json and the drum image pipe and its tests in src/app/ui/pipes/drum-image.pipe.spec.ts. The issue also involves adding the appropriate SVG asset for the crash cymbal and making sure the UI correctly maps the instrument to that image.
 
 ---
 
