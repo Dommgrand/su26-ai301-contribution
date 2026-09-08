@@ -66,30 +66,47 @@ The crash cymbal is recognized by the application through its configured MIDI no
 
 ### Analysis
 
-[Your analysis of the root cause - what's causing the issue?]
+The crash cymbal uses MIDI note 49, but MIDI note 49 isn’t included in the drumImages mapping in DrumImagePipe. Because unmapped MIDI values fall back to default.svg, the crash cymbal displays the default image.
 
 ### Proposed Solution
 
-[High-level description of your fix approach]
+Files I Expect to Touch
+
+* frontend/src/app/ui/pipes/drum-image.pipe.ts — Add the MIDI 49 to crash cymbal image mapping.
+* frontend/src/app/ui/pipes/drum-image.pipe.spec.ts — Update the crash cymbal test to expect the new image.
+* frontend/src/assets/images/drums/ — Add the new crash cymbal SVG asset.
+
+I do not expect to modify frontend/src/assets/beats/rock/variation.json because the crash cymbal and MIDI note 49 are already correctly configured there.
 
 ### Implementation Plan
 
 Using UMPIRE framework (adapted):
 
-**Understand:** [Restate the problem]
+**Understand:** The Rock Variation Pattern includes a crash cymbal with MIDI note 49, but the application does not display a crash cymbal icon for it. The crash cymbal’s audio and MIDI configuration already exist in variation.json, so the problem is with how the UI maps MIDI drum types to their corresponding SVG images.
 
-**Match:** [What similar patterns/solutions exist in the codebase?]
+Currently, the DrumImagePipe contains mappings for the kick, snare, and hi-hat MIDI notes, but it does not contain a mapping for MIDI note 49. When the pipe receives an unmapped MIDI value, it falls back to default.svg. The existing unit test confirms this behavior because the crash cymbal currently expects the default image.
 
-**Plan:** [Step-by-step implementation plan]
-1. [Modify file X to do Y]
-2. [Add function Z]
-3. [Update tests]
+**Match:** The existing DrumImagePipe provides the pattern for solving the issue. It uses the drumImages object to associate MIDI note numbers with SVG image names. For example, MIDI note 36 maps to kick, MIDI note 38 maps to snare, and MIDI notes 42 and 46 map to hihats.
+
+The crash cymbal can follow the same pattern by adding MIDI note 49 to this mapping and assigning it to a crash cymbal SVG image. The existing crash cymbal test in drum-image.pipe.spec.ts can then be updated to expect the new crash cymbal image instead of the default image.
+
+**Plan:** 
+1. Add a crash cymbal SVG asset to the application’s drum image assets.
+2. Update drum-image.pipe.ts so MIDI note 49 maps to the new crash cymbal image.
+3. Update the existing crash cymbal test in drum-image.pipe.spec.ts so it expects the crash cymbal SVG instead of default.svg.
+4. Run the relevant frontend unit tests to verify that the new mapping works.
+5. Run the project’s frontend test suite to make sure the change does not break the existing drum image mappings or other functionality.
+6. Manually verify the Rock Variation Pattern displays the crash cymbal icon correctly.
 
 **Implement:** [Link to your branch/commits as you work]
 
-**Review:** [Self-review checklist - does it follow the project's contribution guidelines?]
+**Review:** Before submitting the change, I will review the project’s contribution guidelines and make sure my branch follows the repository’s workflow. The project’s README recommends forking the repository, creating a branch from main, making the changes, passing the tests, and opening a pull request. (GitHub⁠￼)
 
-**Evaluate:** [How will you verify it works?]
+I will also review the final diff to make sure only the files necessary for the issue were changed, the SVG asset is appropriate, the test accurately represents the expected behavior, and there are no unrelated changes.
+
+**Evaluate:** I will first run the existing DrumImagePipe tests and confirm that the crash cymbal test now passes with the new SVG path. I will also run the frontend test suite using the project’s documented test command to make sure the existing kick, snare, hi-hat, and default-image behavior still works. The repository documents npm run test for the Angular/Karma tests and npm run test-vitest for the Vitest tests. (GitHub⁠￼)
+
+Finally, I will manually check the Rock Variation Pattern in the application to confirm that the crash cymbal now displays its own icon rather than the default drum image.
 
 ---
 
