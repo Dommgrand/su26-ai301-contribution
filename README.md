@@ -42,19 +42,23 @@ The main components involved are the Rock Variation Pattern data in src/assets/b
 
 ### Environment Setup
 
-[Notes on setting up your local development environment - challenges you faced, how you solved them]
+The professor handled the local development environment setup during the class walkthrough, so I did not personally install or configure the project. The project consists of a Scala engine and an Angular frontend. The engine is built using sbt, while the frontend uses Node.js and npm. The professor followed the project’s setup process to get the application running locally.
 
 ### Steps to Reproduce
 
-1. [Step 1]
-2. [Step 2]
-3. [Observed result]
+1. Open the DrumBeatRepo application and navigate to the Rock Variation Pattern.
+2. Examine the drum instruments displayed in the pattern, specifically the crash cymbal.
+3. Observe the visual representation associated with the crash cymbal.
+
+### Observed Result
+
+The crash cymbal is recognized by the application through its configured MIDI note, but it does not have a corresponding visual icon in the interface. The other drum instruments have visual representations, while the crash cymbal is missing its SVG icon.
 
 ### Reproduction Evidence
 
 - **Commit showing reproduction:** [Link to commit in your fork]
-- **Screenshots/logs:** [If applicable]
-- **My findings:** [What you discovered during reproduction]
+- **Screenshots/logs:** N/A
+- **My findings:** The reproduction confirmed that the issue is primarily a missing UI asset rather than a problem with the crash cymbal’s MIDI configuration. The crash cymbal is already associated with MIDI note 49, but the application is missing the SVG image needed to visually represent it. This helped me understand that the fix will likely involve the drum image mapping and the appropriate SVG asset rather than changing the underlying drum pattern or audio functionality.
 
 ---
 
