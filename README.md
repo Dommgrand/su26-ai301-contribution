@@ -1,8 +1,11 @@
-# Contribution [1]: DrumBeatRepo
+# Contribution 1: DrumBeatRepo
 
 **Contribution Number:** 1 
+
 **Student:** Dominique Fraser 
+
 **Issue:** https://github.com/Babali42/DrumBeatRepo/issues/511  
+
 **Status:** Phase 1 -- Complete
 
 ---
