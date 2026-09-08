@@ -1,4 +1,4 @@
-# Contribution [#]: DrumBeatRepo
+# Contribution [1]: DrumBeatRepo
 
 **Contribution Number:** 1 
 **Student:** Dominique Fraser 
