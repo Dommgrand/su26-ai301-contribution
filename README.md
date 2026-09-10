@@ -56,7 +56,7 @@ The crash cymbal is recognized by the application through its configured MIDI no
 
 ### Reproduction Evidence
 
-- **Commit showing reproduction:** [Link to commit in your fork]
+- **Commit showing reproduction:** https://github.com/shanker-codepath/DrumBeatRepo/tree/cymbal-image
 - **Screenshots/logs:** N/A
 - **My findings:** The reproduction confirmed that the issue is primarily a missing UI asset rather than a problem with the crash cymbal’s MIDI configuration. The crash cymbal is already associated with MIDI note 49, but the application is missing the SVG image needed to visually represent it. This helped me understand that the fix will likely involve the drum image mapping and the appropriate SVG asset rather than changing the underlying drum pattern or audio functionality.
 
