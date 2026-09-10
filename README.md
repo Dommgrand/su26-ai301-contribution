@@ -98,7 +98,7 @@ The crash cymbal can follow the same pattern by adding MIDI note 49 to this mapp
 5. Run the project’s frontend test suite to make sure the change does not break the existing drum image mappings or other functionality.
 6. Manually verify the Rock Variation Pattern displays the crash cymbal icon correctly.
 
-**Implement:** [Link to your branch/commits as you work]
+**Implement:** https://github.com/shanker-codepath/DrumBeatRepo/tree/cymbal-image
 
 **Review:** Before submitting the change, I will review the project’s contribution guidelines and make sure my branch follows the repository’s workflow. The project’s README recommends forking the repository, creating a branch from main, making the changes, passing the tests, and opening a pull request. (GitHub⁠￼)
 
