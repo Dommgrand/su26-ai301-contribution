@@ -114,18 +114,26 @@ Finally, I will manually check the Rock Variation Pattern in the application to 
 
 ### Unit Tests
 
-- [ ] Test case 1: [Description]
-- [ ] Test case 2: [Description]
-- [ ] Test case 3: [Description]
+- [ ] Test case 1: Crash cymbal MIDI mapping
+
+Verify that MIDI note 49 maps to the new crash cymbal SVG image instead of the default drum image.
+- [ ] Test case 2: Existing drum image mappings
+
+Verify that the existing MIDI mappings for the kick, snare, and hi-hat still return their correct SVG images after adding the crash cymbal mapping.
+- [ ] Test case 3: Default image behavior
+
+Verify that an unsupported or unmapped MIDI note still returns the default drum image. This ensures that adding the crash cymbal mapping does not change the existing fallback behavior.
 
 ### Integration Tests
 
 - [ ] Integration scenario 1
+      Load the Rock Variation Pattern and verify that the crash cymbal is displayed with its new SVG icon when MIDI note 49 is used.
 - [ ] Integration scenario 2
+      Verify that the Rock Variation Pattern continues to display the correct icons for the other drum instruments after the crash cymbal mapping is added.
 
-### Manual Testing
+### Manual Testing & Results
 
-[What you tested manually and results]
+We manually tested the Rock Variation Pattern in the application after the code changes were implemented. We verified that the crash cymbal displays its own icon instead of the default image and that the other drum icons continue to display correctly.
 
 ---
 
@@ -133,31 +141,42 @@ Finally, I will manually check the Rock Variation Pattern in the application to 
 
 ### Week [X] Progress
 
-[What you built this week, challenges faced, decisions made]
+During this phase, I analyzed the root cause of Issue #511 and developed a solution plan before implementation. I identified that MIDI note 49 is already assigned to the crash cymbal, but the DrumImagePipe does not currently map MIDI note 49 to a crash cymbal image. I also identified the existing crash cymbal test that will need to be updated.
+
+Challenges: Understanding how the MIDI note configuration connects to the image mapping and determining which files are responsible for the missing UI behavior.
+
+Decision: Follow the existing image-mapping pattern rather than changing the drum pattern configuration because the crash cymbal’s MIDI configuration is already correct.
 
 ### Week [Y] Progress
 
-[Continue documenting as you work]
+Added the crash cymbal SVG and updated the MIDI-to-image mapping. Updated the existing unit test to expect the crash cymbal image. The main challenge was determining whether the issue originated in the drum pattern configuration or the UI mapping. Testing confirmed it was added successfully.
 
 ### Code Changes
 
-- **Files modified:** [List]
-- **Key commits:** [Links to important commits]
-- **Approach decisions:** [Why you chose certain approaches]
+- **Files modified:**
+* frontend/src/app/ui/pipes/drum-image.pipe.ts
+* frontend/src/app/ui/pipes/drum-image.pipe.spec.ts
+* frontend/src/assets/images/drums/
+* No code changes were committed or submitted to the main repo
+  
+- **Key commits:** https://github.com/shanker-codepath/DrumBeatRepo/tree/cymbal-image
+- **Approach decisions:** The solution will follow the existing DrumImagePipe mapping pattern. MIDI note 49 will be mapped to a dedicated crash cymbal SVG rather than changing the existing Rock Variation Pattern configuration. The existing crash cymbal unit test will also be updated to reflect the expected behavior.
 
 ---
 
 ## Pull Request
 
-**PR Link:** [GitHub PR URL when submitted]
+**PR Link:** No pull request was submitted.
 
-**PR Description:** [Draft or final PR description - much of the content above can be adapted]
+**PR Description:** A pull request was not created because another contributor claimed Issue #511 before we were able to implement and submit the solution.
 
 **Maintainer Feedback:**
-- [Date]: [Summary of feedback received]
-- [Date]: [How you addressed it]
+No maintainer feedback was received because no pull request was submitted.
 
-**Status:** [Awaiting review / Iterating / Approved / Merged]
+
+**Status:** Issue #511 was claimed by another contributor, so implementation and PR submission were not completed as part of my contribution.
+
+**What I Learned** This experience showed me that open-source issues can be claimed by other contributors while I am still investigating or planning a solution. Even though we did not submit a pull request, we were able to complete the issue analysis, identify the root cause, develop a solution plan, and define an appropriate testing strategy. This gave me practice with the early stages of an open-source contribution workflow without making an unnecessary duplicate contribution.
 
 ---
 
@@ -165,15 +184,17 @@ Finally, I will manually check the Rock Variation Pattern in the application to 
 
 ### Technical Skills Gained
 
-[What you learned technically]
+Through this issue, I am learning how to navigate an existing open-source codebase and trace a UI problem back to the code responsible for the behavior. I am also gaining experience with TypeScript, Angular pipes, SVG assets, unit testing, and the relationship between data configuration and UI presentation.
+
+I am also learning more about the open-source contribution workflow, including working from an issue, creating a solution plan, using Git branches and commits, testing changes, and preparing a pull request.
 
 ### Challenges Overcome
 
-[What was hard and how you solved it]
+One of the main challenges was understanding why the crash cymbal was missing its icon when the crash cymbal itself was already configured in the drum pattern. By tracing the MIDI note from the pattern configuration to the image-mapping logic, I was able to identify that MIDI note 49 was not included in the image mapping and was therefore falling back to the default image.
 
 ### What I'd Do Differently Next Time
 
-[Reflection on your process]
+Next time, I would begin by tracing the affected data through the application earlier instead of focusing only on the visible behavior. Following the value from the configuration file through the code to the UI would help me identify the root cause more quickly. I would also become more familiar with the project’s testing structure earlier so I could identify the relevant tests before planning the fix.
 
 ---
 
