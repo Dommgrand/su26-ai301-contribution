@@ -153,14 +153,15 @@ Added the crash cymbal SVG and updated the MIDI-to-image mapping. Updated the ex
 
 ### Code Changes
 
-- **Files modified:**
+**Files modified:**
 * frontend/src/app/ui/pipes/drum-image.pipe.ts
 * frontend/src/app/ui/pipes/drum-image.pipe.spec.ts
 * frontend/src/assets/images/drums/
 * No code changes were committed or submitted to the main repo
   
-- **Key commits:** https://github.com/shanker-codepath/DrumBeatRepo/tree/cymbal-image
-- **Approach decisions:** The solution will follow the existing DrumImagePipe mapping pattern. MIDI note 49 will be mapped to a dedicated crash cymbal SVG rather than changing the existing Rock Variation Pattern configuration. The existing crash cymbal unit test will also be updated to reflect the expected behavior.
+**Key commits:** https://github.com/shanker-codepath/DrumBeatRepo/tree/cymbal-image
+
+**Approach decisions:** The solution will follow the existing DrumImagePipe mapping pattern. MIDI note 49 will be mapped to a dedicated crash cymbal SVG rather than changing the existing Rock Variation Pattern configuration. The existing crash cymbal unit test will also be updated to reflect the expected behavior.
 
 ---
 
@@ -200,6 +201,4 @@ Next time, I would begin by tracing the affected data through the application ea
 
 ## Resources Used
 
-- [Link to helpful documentation]
-- [Tutorial or Stack Overflow post that helped]
-- [GitHub issues or discussions that helped]
+svgrepo.com -- free svg images used for crash cymbal 
